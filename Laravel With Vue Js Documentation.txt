@@ -1,0 +1,52 @@
+
+##------PHPFlasher Laravel-----##
+1. First of all use your project this commend->
+   EX: composer require php-flasher/flasher-laravel
+
+2. Then use function in any action ->
+   EX: public function ****( FlasherInterface $flasher)  { }
+
+3. Then use any message class ->
+   EX: flash()->addSuccess('Your Post has been submitted.');
+##------PHPFlasher Laravel-----##
+
+##------Laravel Mail function-----## //***** This function use for forgate Password******
+4. Register or Login Mailtrap Account then use olternative mail box
+   hints: https://mailtrap.io/
+
+5. use Notification Commande ->
+   EX: php artisan make:notification PostCreated
+
+6. use notification function some code ->
+   Ex: class PostCreated extends Notification
+   {
+    use Queueable;
+    public $post;
+    /**
+     * Create a new notification instance.
+     *
+     * @return void
+     */
+    public function __construct($post)
+    {
+        $this->post = $post;
+    }
+
+7. Chnage your project env file/mail function
+   This all mailtrap/Integrations/choose-langeage('Laravel').. and copy this code then pest project env file
+   EX: MAIL_MAILER=smtp
+       MAIL_HOST=smtp.mailtrap.io
+       MAIL_PORT=2525
+       MAIL_USERNAME=00592e91ac6b75
+       MAIL_PASSWORD=9745c431abe960
+       MAIL_ENCRYPTION=tls
+
+8. Then use your controller function ->
+   EX:  $user = Auth::user();
+        $user->notify(new PostCreated($post));
+
+##------Laravel Mail function-----##
+   
+
+
+  
